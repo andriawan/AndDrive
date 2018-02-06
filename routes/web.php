@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'Home@index');
+Route::get('/pencarian', 'Pencarian@index');
+
+Route::post('/cari', 'Pencarian@cari');
+
+Route::get('/sample', function ()
+{
+	return view('sample');
 });
