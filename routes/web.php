@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', 'Home@index');
-Route::get('/pencarian', 'Pencarian@index');
+Route::get('/', array('as'=>'home','uses'=>'Home@index'));
 
-Route::post('/cari', 'Pencarian@cari');
+Route::get('auth',array('as'=>'glogin','uses'=>'Home@google_login'));
+Route::get('profile',array('as'=>'profile','uses'=>'Home@get_user_profile')) ;
+Route::get('files/list',array('as'=>'lists','uses'=>'Home@list_files')) ;
+Route::get('logout',array('as'=>'logout','uses'=>'Home@logout')) ;
 
-Route::get('/sample', function ()
-{
-	return view('sample');
-});
+Route::post('/drive/from/local', array('as'=>'local_upload','uses'=>'Home@upload_local'));
+Route::post('/drive/from/url', array('as'=>'url_upload','uses'=>'Home@upload_url'));
