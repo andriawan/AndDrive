@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'AndDrive'),
 
     /*
     |--------------------------------------------------------------------------
@@ -180,6 +180,7 @@ return [
          * External Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class
 
     ],
 
@@ -232,8 +233,5 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
-    ],
-
-    'api_search' => 'http://id-onesoft.com/test_idonesoft/search.php'
-
+    ]
 ];
