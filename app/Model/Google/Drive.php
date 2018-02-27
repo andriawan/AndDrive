@@ -84,13 +84,10 @@ class Drive extends Model
 
     public function list_files(Request $request)
     {
-        $this->drive->setAccessToken($request->session()->get('token'));
-        $drive = new \Google_Service_Drive($this->drive);
-        $files = $drive->files->listFiles($optParams = array(
-           'pageSize' => 10,
-           'fields' => 'nextPageToken, files(id, name)'
-        ))->getFiles();
-
+        return  DB::table('drive_file_info')
+            ->where(['owner' => session('id_user')])
+            ->orderBy('created_at', 'asc')
+            ->get();
     }
 
     public function upload_file(Request $request)
@@ -128,7 +125,7 @@ class Drive extends Model
         $drive_user->avatar_url = $user['picture'];
 
         $drive_user->save();
-        session(['id_user' => $drive_user->id]);
+        session(['id_user' => $drive_user->id_user]);
     }
 
     public function save_file_info($arr = array())
@@ -142,13 +139,16 @@ class Drive extends Model
         ]);
     }
 
-    public function download_file($id = null)
+    public function download_file($id = null, Request $request)
     {
         $this->drive->setAccessToken($request->session()->get('token'));
+        $drive = new \Google_Service_Drive($this->drive);
         $fileId = $id;
-        $response = $this->drive->files->get($fileId, array(
+        $file = $drive->files->get($fileId, array(
                     'alt' => 'media'));
-        $content = $response->getBody()->getContents();
+
+        return response($file->getBody()->getContents())
+            ->header('Content-Type', $file->getHeader('Content-Type'));
     }
 
     public function is_user_exist($email = null, $id = null)
