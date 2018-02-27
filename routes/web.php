@@ -16,6 +16,7 @@ Route::get('/', array('as'=>'home','uses'=>'Home@index'));
 Route::get('auth',array('as'=>'glogin','uses'=>'Home@google_login'));
 Route::get('profile',array('as'=>'profile','uses'=>'Home@get_user_profile')) ;
 Route::get('files',array('as'=>'lists','uses'=>'Home@list_files')) ;
+Route::get('download/{id}',array('as'=>'download','uses'=>'Home@download_file')) ;
 Route::get('logout',array('as'=>'logout','uses'=>'Home@logout')) ;
 
 Route::post('/drive/from/local', array('as'=>'local_upload','uses'=>'Home@upload_local'));
