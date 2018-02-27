@@ -87,7 +87,7 @@ class Drive extends Model
     {
         return  DB::table('drive_file_info')
             ->where(['owner' => session('id_user')])
-            ->orderBy('created_at', 'asc')
+            ->orderBy('created_at', 'desc')
             ->get();
     }
 
