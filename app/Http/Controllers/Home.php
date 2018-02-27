@@ -20,7 +20,7 @@ class Home extends Controller
 
     public function index()
     {
-        return view('home.main');
+        return view('home.main')->with(['home_page' => 1]);
     }
 
     public function google_login(Request $request)  {
@@ -30,7 +30,7 @@ class Home extends Controller
 
     public function get_user_profile()
     {
-        return view('home.profile');
+        return view('home.profile')->with(['profile_page' => 1]);
     }
 
     public function upload_local(Request $request)
@@ -47,7 +47,8 @@ class Home extends Controller
     public function list_files(Request $request)
     {
         $lists =  $this->drive->list_files($request);
-        return view('home.list', compact('lists'));
+        $list_page = 1;
+        return view('home.list', compact('lists', 'list_page'));
     }
 
     public function logout(Request $request)

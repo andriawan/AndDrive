@@ -17,7 +17,7 @@
 	@endif
 
 	
-
+	{{ debug_me($profile_page)}}
 	{{ debug_me(session()->all())}}
 
 @endsection

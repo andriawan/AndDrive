@@ -7,17 +7,20 @@
 
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item {{ isset($home_page) ? 'active' : ''}}">
+        <a class="nav-link" href="{{ route('home') }}">Home</a>
       </li>
 
       @if (session('drive') != null)
-        <li class="nav-item">
+        <li class="nav-item {{ isset($profile_page) ? 'active' : ''}}">
           <a class="nav-link" href="{{ route('profile') }}">User Info</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('lists') }}">List Files</a>
+        
+        <li class="nav-item {{ isset($list_page) ? 'active' : ''}}">
+          <a class="nav-link" href="{{ route('lists') }}">List Files
+          </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="{{ route('logout') }}">Logout</a>
         </li>
