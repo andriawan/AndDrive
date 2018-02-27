@@ -29,7 +29,7 @@
 			<h4 class="alert-heading">Perhatian !</h4>
 			<li><strong>AndDrive</strong> masih dalam tahap pengembangan. Pengembang tidak menyarankan mengupload data sensitif. Gunakan untuk keperluan testing saja</li>
 			<li>Jika menurut anda <strong>AndDrive</strong> bermanfaat, Silahkan digunakan dengan bijak</li>
-			<li>Anda bisa ikut berkontribusi dengan cara fork github. Buat perubahan dan pull request</li>
+			<li>Anda bisa ikut berkontribusi dengan cara fork <span><a href="https://github.com/andriawan/AndDrive">github</a></span>. Buat perubahan dan pull request</li>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
