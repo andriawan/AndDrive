@@ -18,6 +18,6 @@
 
 	
 
-	{{ var_dump(session()->all())}}
+	{{ debug_me(session()->all())}}
 
 @endsection
