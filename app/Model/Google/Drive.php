@@ -128,6 +128,7 @@ class Drive extends Model
         $drive_user->avatar_url = $user['picture'];
 
         $drive_user->save();
+        session(['id_user' => $drive_user->id]);
     }
 
     public function save_file_info($arr = array())
