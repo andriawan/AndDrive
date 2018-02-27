@@ -5,6 +5,7 @@
         @include('stack.meta')
         @stack('common-meta')
         @stack('global-styles')
+        @stack('custom-css')
     </head>
     <body>
         @include('component.nav')
