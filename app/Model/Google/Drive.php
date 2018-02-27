@@ -32,6 +32,7 @@ class Drive extends Model
         $this->drive->setClientSecret(config('services.drive.client_secret'));
         $this->drive->setRedirectUri(route('glogin'));
         $this->drive->setAccessType("offline");
+        $this->drive->setApprovalPrompt('force');
         $this->drive->setDeveloperKey(config('services.drive.api_key'));
         $this->drive->setScopes(array(
             'https://www.googleapis.com/auth/drive.file',
@@ -92,7 +93,7 @@ class Drive extends Model
 
     public function upload_file(Request $request)
     {
-        $this->drive->setAccessToken($request->session()->get('token'));
+        $this->prepare_token($request);
         $file = $request->file('local');
         $drive = new \Google_Service_Drive($this->drive);
         $fileMetadata = new \Google_Service_Drive_DriveFile(array(
@@ -141,7 +142,7 @@ class Drive extends Model
 
     public function download_file($id = null, Request $request)
     {
-        $this->drive->setAccessToken($request->session()->get('token'));
+        $this->prepare_token($request);
         $drive = new \Google_Service_Drive($this->drive);
         $fileId = $id;
         $file = $drive->files->get($fileId, array(
@@ -149,6 +150,21 @@ class Drive extends Model
 
         return response($file->getBody()->getContents())
             ->header('Content-Type', $file->getHeader('Content-Type'));
+    }
+    
+    public function prepare_token(Request $request)
+    {
+        if ($request->session()->get('token'))
+        {
+            $this->drive->setAccessToken($request->session()->get('token'));
+        }
+
+        if($this->drive->isAccessTokenExpired()){  // if token expired
+    
+            // refresh the token
+            $this->drive->refreshToken($request->session()->get('token')['refresh_token']);
+        }
+
     }
 
     public function is_user_exist($email = null, $id = null)
