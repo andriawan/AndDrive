@@ -8,11 +8,11 @@
     </head>
     <body>
         @include('component.nav')
-        @include('component.alert')
         @section('sidebar')
         @show
 
         <div class="container">
+            @include('component.alert')
             @yield('content')
         </div>
     </body>

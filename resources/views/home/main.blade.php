@@ -25,6 +25,16 @@
 		</div>
 	@endif
 
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<h4 class="alert-heading">Perhatian !</h4>
+			<li><strong>AndDrive</strong> masih dalam tahap pengembangan. Pengembang tidak menyarankan mengupload data sensitif. Gunakan untuk keperluan testing saja</li>
+			<li>Jika menurut anda <strong>AndDrive</strong> bermanfaat, Silahkan digunakan dengan bijak</li>
+			<li>Anda bisa ikut berkontribusi dengan cara fork github. Buat perubahan dan pull request</li>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+	</div>
+
 	
 	<!-- Modal local-->
 	<div class="modal fade" id="local" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
