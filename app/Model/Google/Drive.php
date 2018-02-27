@@ -32,7 +32,6 @@ class Drive extends Model
         $this->drive->setClientSecret(config('services.drive.client_secret'));
         $this->drive->setRedirectUri(route('glogin'));
         $this->drive->setAccessType("offline");
-        $this->drive->setApprovalPrompt('force');
         $this->drive->setDeveloperKey(config('services.drive.api_key'));
         $this->drive->setScopes(array(
             'https://www.googleapis.com/auth/drive.file',

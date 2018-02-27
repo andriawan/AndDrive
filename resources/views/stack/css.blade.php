@@ -2,6 +2,7 @@
   
   @push('global-styles')
     <link rel="stylesheet" href="vendor/bootstrap/v4/css/bootstrap.min.css"></script>
+    <link rel="icon" href="drive.png">
   @endpush
 
 @else
