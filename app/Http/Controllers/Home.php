@@ -39,9 +39,15 @@ class Home extends Controller
         return redirect()->to('/');
     }
 
+    public function download_file($file_id = null, Request $request)
+    {
+        return $this->drive->download_file($file_id, $request);
+    }
+
     public function list_files(Request $request)
     {
-        return $this->drive->list_files($request);
+        $lists =  $this->drive->list_files($request);
+        return view('home.list', compact('lists'));
     }
 
     public function logout(Request $request)
