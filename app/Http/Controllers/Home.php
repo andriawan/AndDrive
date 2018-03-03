@@ -20,7 +20,8 @@ class Home extends Controller
 
     public function index()
     {
-        return view('home.main')->with(['home_page' => 1]);
+        $user_count = $this->drive->count_user();
+        return view('home.main')->with(['home_page' => 1, 'user_count' => $user_count]);
     }
 
     public function google_login(Request $request)  {

@@ -18,6 +18,7 @@
 		<div class="jumbotron" style="background-color:  white;text-align: center;">
 			<h1 class="display-4">Selamat Datang di AndDrive</h1>
 			<p class="lead">Tempat upload file local disk maupun url ke Google Drive Anda.</p>
+			<p class="lead"><b>{{ $user_count }}</b> user telah bergabung ke AndDrive. Anda selanjutnya?</p>
 			<p>Aplikasi ini merupakan wrapper upload ke Google Drive. Tidak hanya file local, anda juga bisa download file dari server lain ke drive anda</p>
 			<p class="lead">
 			<a class="btn btn-primary btn-lg" href="{{ route('glogin') }}" role="button">Login Google First</a>
@@ -113,6 +114,6 @@
 			</div>
 	</div>
 
-	{{ debug_me(session()->all())}}
+	{{ debug_me($user_count)}}
 
 @endsection

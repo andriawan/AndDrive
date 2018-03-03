@@ -150,6 +150,11 @@ class Drive extends Model
         return response($file->getBody()->getContents())
             ->header('Content-Type', $file->getHeader('Content-Type'));
     }
+
+    public function count_user()
+    {
+        return Drive::count();
+    }
     
     public function prepare_token(Request $request)
     {
