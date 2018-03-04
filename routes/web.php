@@ -21,3 +21,8 @@ Route::get('logout',array('as'=>'logout','uses'=>'Home@logout')) ;
 
 Route::post('/drive/from/local', array('as'=>'local_upload','uses'=>'Home@upload_local'));
 Route::post('/drive/from/url', array('as'=>'url_upload','uses'=>'Home@upload_url'));
+
+// Route::get('test', function () {
+//     $t = new App\Model\Google\Drive();
+//     return $t->upload_file_url(request());
+// });
