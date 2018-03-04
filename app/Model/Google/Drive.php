@@ -36,6 +36,7 @@ class Drive extends Model
         $this->drive->setScopes(array(
             'https://www.googleapis.com/auth/drive.file',
             'https://www.googleapis.com/auth/drive',
+            'https://www.googleapis.com/auth/script.external_request',
             'profile',
             'email'
         ));
@@ -88,6 +89,57 @@ class Drive extends Model
             ->where(['owner' => session('id_user')])
             ->orderBy('created_at', 'desc')
             ->get();
+    }
+    
+    public function upload_file_url(Request $request)
+    {
+        $this->prepare_token($request);
+        $script = new \Google_Service_Script($this->drive);
+        $script_id = config('services.drive.script_id');
+
+        // Create an execution request object.
+        $exec_request = new \Google_Service_Script_ExecutionRequest();
+        $exec_request->setParameters($request->input('url'));
+        $exec_request->setFunction('doGet');
+        
+        
+        try{
+            // Make the API request.
+            $response = $script->scripts->run($script_id, $exec_request);
+
+            if(App::environment('local')){
+
+                if ($response->getError()) {
+                    // The API executed, but the script returned an error.
+                
+                    // Extract the first (and only) set of error details. The values of this
+                    // object are the script's 'errorMessage' and 'errorType', and an array of
+                    // stack trace elements.
+                    $error = $response->getError()['details'][0];
+                    printf("Script error message: %s\n", $error['errorMessage']);
+                
+                    if (array_key_exists('scriptStackTraceElements', $error)) {
+                        // There may not be a stacktrace if the script didn't start executing.
+                        print "Script error stacktrace:\n";
+                        foreach($error['scriptStackTraceElements'] as $trace) {
+                            printf("\t%s: %d\n", $trace['function'], $trace['lineNumber']);
+                        }
+                    }
+                } else {
+                    return redirect()->to('');
+                }
+
+            }else{
+                
+                if (!$response->getError()) {
+                    return redirect()->to('');
+                }
+
+            }
+        }catch(\Google_Service_Exception $e){
+            // The API encountered a problem before the script started executing.
+            return redirect()->to('/');
+        }
     }
 
     public function upload_file(Request $request)

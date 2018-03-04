@@ -10,7 +10,7 @@
 			<h1 class="display-4">Selamat Datang di AndDrive</h1>
 			<p class="lead">Hello <b>{{ session('drive')->name }}</b> Silahkan Pilih file dari local atau url</p>
 			<a class="btn btn-success btn-lg" data-toggle="modal" data-target="#local" href="{{ route('glogin') }}" role="button">Upload Local File</a>
-			<a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#coming" href="{{ route('glogin') }}" role="button">Upload From URL</a>
+			<a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#url" href="{{ route('glogin') }}" role="button">Upload From URL</a>
 			</p>
 		</div>
 			
@@ -74,26 +74,29 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form action="" method="POST">
+					{!! Form::open(['url' => route('url_upload'), 'files' => true]) !!}
+
 						<div class="modal-body">
 								<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">URL</div>
 										</div>
-										<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="http://yourserver/file.txt">
+										<input type="text" name="url" class="form-control" id="inlineFormInputGroup" placeholder="http://yourserver/file.txt">
 								</div>
 						</div>
+
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 							<button type="submit" class="btn btn-primary">Upload</button>
 						</div>
-					</form>
+					
+					{!! Form::close() !!}
 				</div>
 			</div>
 	</div>
 
 	<!-- Modal URL-->
-	<div class="modal fade" id="coming" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="url" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">

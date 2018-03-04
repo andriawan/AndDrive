@@ -40,6 +40,11 @@ class Home extends Controller
         return redirect()->to('/');
     }
 
+    public function upload_url(Request $request)
+    {
+        return $this->drive->upload_file_url($request);
+    }
+
     public function download_file($file_id = null, Request $request)
     {
         return $this->drive->download_file($file_id, $request);
