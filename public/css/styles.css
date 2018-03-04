@@ -1,14 +1,48 @@
 /* 
  * custom styles
  */
-@media (max-width:420px){
+
+@media (max-width:768px){
 
   a.btn.btn-primary.btn-lg{
+    display: block;
+    font-size: 16px;
     margin-top: 15px;
+  }
+
+  a.btn.btn-success.btn-lg{
+    font-size: 16px;
+    display: block;
   }
 
   .display-4{
     font-size: 2.5rem;
+  }
+
+}
+
+/* super low mobile */
+@media (max-width:220px){
+  a.btn.btn-primary.btn-lg{
+    display: block;
+    font-size: 10px;
+    margin-top: 15px;
+  }
+
+  a.btn.btn-success.btn-lg{
+    font-size: 10px;
+    display: block;
+  }
+
+  .material-icons{
+    font-size: 15px;
+  }
+}
+
+@media (max-width:960px){
+
+  li i.material-icons{
+    width: 30px;
   }
 
 }

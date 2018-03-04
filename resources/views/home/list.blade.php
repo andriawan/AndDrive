@@ -19,7 +19,7 @@
                 <p class="card-text">
                     Di buat pada tanggal {{ \Carbon\Carbon::parse($list->created_at)->format('d M Y G:i')}}
                 </p>
-                <a href="{{ route('download', ['id' => $list->file_id ]) }}" class="btn btn-primary">Download</a>
+                <a href="{{ route('download', ['id' => $list->file_id ]) }}" class="btn btn-primary"><i class="material-icons" style="margin-right: 1px;font-size: 17px;">file_download</i> Download</a>
               </div>
           </div>
         @endforeach

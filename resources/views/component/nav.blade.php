@@ -10,25 +10,25 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item {{ isset($home_page) ? 'active' : ''}}">
-        <a class="nav-link" href="{{ route('home') }}">Home</a>
+        <a class="nav-link" href="{{ route('home') }}"><i class="material-icons" style="vertical-align: middle;font-size: 16px;">home</i> Home</a>
       </li>
 
       @if (session('drive') != null)
         <li class="nav-item {{ isset($profile_page) ? 'active' : ''}}">
-          <a class="nav-link" href="{{ route('profile') }}">User Info</a>
+          <a class="nav-link" href="{{ route('profile') }}"><i class="material-icons" style="vertical-align: middle;font-size: 18px;">account_circle</i> User Info</a>
         </li>
         
         <li class="nav-item {{ isset($list_page) ? 'active' : ''}}">
-          <a class="nav-link" href="{{ route('lists') }}">List Files
+          <a class="nav-link" href="{{ route('lists') }}"><i class="material-icons" style="vertical-align: middle;font-size: 18px;">toc</i> List Files
           </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="https://github.com/andriawan/AndDrive">Fork Me on Github</a>
+            <a class="nav-link" href="https://github.com/andriawan/AndDrive"><i class="material-icons" style="vertical-align: middle; font-size: 18px;">launch</i> Fork Me on Github</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+          <a class="nav-link" href="{{ route('logout') }}" ><i class="material-icons" style="vertical-align: middle;font-size: 18px;">settings_power</i> Logout</a>
         </li>
       @endif
 

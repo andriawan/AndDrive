@@ -9,8 +9,8 @@
 		<div class="jumbotron" style="background-color:  white;text-align: center;">
 			<h1 class="display-4">Selamat Datang di AndDrive</h1>
 			<p class="lead">Hello <b>{{ session('drive')->name }}</b> Silahkan Pilih file dari local atau url</p>
-			<a class="btn btn-success btn-lg" data-toggle="modal" data-target="#local" href="{{ route('glogin') }}" role="button">Upload Local File</a>
-			<a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#url" href="{{ route('glogin') }}" role="button">Upload From URL</a>
+			<a class="btn btn-success btn-lg" data-toggle="modal" data-target="#local" href="{{ route('glogin') }}" role="button"><i class="material-icons" style="margin-right: 10px;">file_upload</i>Upload Local File</a>
+			<a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#url" href="{{ route('glogin') }}" role="button"><i class="material-icons" style="margin-right: 10px;">file_upload</i>Upload From URL</a>
 			</p>
 		</div>
 			
@@ -18,16 +18,18 @@
 		<div class="jumbotron" style="background-color:  white;text-align: center;">
 			<h1 class="display-4">Selamat Datang di AndDrive</h1>
 			<p class="lead">Tempat upload file local disk maupun url ke Google Drive Anda.</p>
-			<p class="lead"><b>{{ $user_count }}</b> user telah bergabung ke AndDrive. Anda selanjutnya?</p>
+			<p class="lead"><i class="material-icons">supervisor_account</i> <b>{{ $user_count }}</b> user telah bergabung ke AndDrive. Anda selanjutnya?</p>
 			<p>Aplikasi ini merupakan wrapper upload ke Google Drive. Tidak hanya file local, anda juga bisa download file dari server lain ke drive anda</p>
-			<p class="lead">
-			<a class="btn btn-primary btn-lg" href="{{ route('glogin') }}" role="button">Login Google First</a>
-			</p>
+			<div>
+				<p class="lead">
+					<a class="btn btn-primary btn-lg" href="{{ route('glogin') }}" role="button"><i class="material-icons">account_circle</i> Login Google First</a>
+				</p>
+			</div>
 		</div>
 	@endif
 
 	<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<h4 class="alert-heading">Perhatian !</h4>
+			<h4 class="alert-heading"><i class="material-icons">warning</i> Perhatian !</h4>
 			<li><strong>AndDrive</strong> masih dalam tahap pengembangan. Pengembang tidak menyarankan mengupload data sensitif. Gunakan untuk keperluan testing saja</li>
 			<li>Jika menurut anda <strong>AndDrive</strong> bermanfaat, Silahkan digunakan dengan bijak</li>
 			<li>Anda bisa ikut berkontribusi dengan cara fork <span><a href="https://github.com/andriawan/AndDrive">github</a></span>. Buat perubahan dan pull request</li>

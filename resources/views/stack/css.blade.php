@@ -2,6 +2,7 @@
   
   @push('global-styles')
     <link rel="stylesheet" href="vendor/bootstrap/v4/css/bootstrap.min.css"></script>
+    <link href="css/material-icons.css" rel="stylesheet">
     <link rel="icon" href="drive.png">
   @endpush
 
@@ -14,6 +15,7 @@
   @push('global-styles')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="icon" href="drive.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   @endpush
 
   @push('custom-css')
